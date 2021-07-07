@@ -1,4 +1,4 @@
-var HTMLMapContainer = function(browserDocument, browserWindow, parentElement, canvasId, canvasWidth, canvasHeight, backgroundColor, containerId, mapId) {
+var HTMLMapContainer = function(browserDocument, browserWindow, parentElement, canvasId, canvasWidth, canvasHeight, containerId, mapId) {
 
     var _browserWindow = browserWindow;
     var _browserDocument = browserDocument;
@@ -82,7 +82,7 @@ var HTMLMapContainer = function(browserDocument, browserWindow, parentElement, c
         return errorMessage;
     };
 
-    var _createCanvas = function(parentElement, canvasId, width, height, backgroundColor) {
+    var _createCanvas = function(parentElement, canvasId, width, height) {
         var attributes = {
             "class": "wrld-map-canvas",
             "id": canvasId,
@@ -90,10 +90,7 @@ var HTMLMapContainer = function(browserDocument, browserWindow, parentElement, c
             "width": width.toString(),
             "height": height.toString()
         };
-        var style = {
-            "background-color": backgroundColor
-        };
-        var canvas = _createDOMElement(parentElement, "canvas", attributes, style);
+        var canvas = _createDOMElement(parentElement, "canvas", attributes, {});
 
         return canvas;
     };
@@ -134,7 +131,7 @@ var HTMLMapContainer = function(browserDocument, browserWindow, parentElement, c
     this.loadingSpinnerIcon = _createLoadingSpinner(this.mapContainer);
     this.overlay = _createLeafletOverlay(this.mapContainer);
     this.indoorMapWatermark = _createIndoorMapWatermark(this.mapContainer);
-    this.canvas = _createCanvas(this.mapContainer, canvasId, canvasWidth, canvasHeight, backgroundColor);
+    this.canvas = _createCanvas(this.mapContainer, canvasId, canvasWidth, canvasHeight);
 
     this.loadingSpinner = new LoadingSpinner(_browserWindow, this.loadingSpinnerIcon);
     this.loadingSpinner.startSpinning();

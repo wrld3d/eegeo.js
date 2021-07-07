@@ -116,7 +116,7 @@ var EegeoMapController = function (mapId, emscriptenApi, domElement, apiKey, bro
     var _canvasHeight = options["height"] || domElement.clientHeight;
     var _containerId = "wrld-map-container" + _mapId;
 
-    var _mapContainer = new HTMLMapContainer(_browserDocument, _browserWindow, domElement, _canvasId, _canvasWidth, _canvasHeight, options.drawClearColor, _containerId, _mapId);
+    var _mapContainer = new HTMLMapContainer(_browserDocument, _browserWindow, domElement, _canvasId, _canvasWidth, _canvasHeight, _containerId, _mapId);
 
     var _canvas = _mapContainer.canvas;
 
